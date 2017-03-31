@@ -23,7 +23,7 @@ public class AutoSpinCounterwise extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(1.0);
+    	setTimeout(1.1);
     	gyro.reset();
     }
 
@@ -31,11 +31,11 @@ public class AutoSpinCounterwise extends Command {
     protected void execute() {
     	double gyroAngle = gyro.getAngle();
     	SmartDashboard.putNumber("Gyroscope Angle", gyroAngle);
-    	if(gyroAngle < -26){
-    		Robot.drivetraintank.setLeft_Back(.35);
-    		Robot.drivetraintank.setLeft(.35);
-    		Robot.drivetraintank.setRight(-.35);
-    		Robot.drivetraintank.setRight_Back(-.35);
+    	if(gyroAngle > -39){
+    		Robot.drivetraintank.setLeft_Back(.5);
+    		Robot.drivetraintank.setLeft(.5);
+    		Robot.drivetraintank.setRight(-.5);
+    		Robot.drivetraintank.setRight_Back(-.5);
     	} else {
     		Robot.drivetraintank.setLeft_Back(0);
         	Robot.drivetraintank.setLeft(0);

@@ -20,6 +20,7 @@ public class OI {
 	//Joystick and JoystickButton declarations
 	public Joystick leftJoystick;
     public Joystick rightJoystick;
+    public Joystick buttonBoard;
     
     public JoystickButton StraightDrive;
     public JoystickButton ReverseStraightDrive;
@@ -37,18 +38,22 @@ public class OI {
 //    public JoystickButton ServoSpin;
     
     public JoystickButton ReadSensors;
+    
+    public JoystickButton ClimbUp;
+    public JoystickButton ClimbDown;
     // These objects are referenced below in public OI()
 
     public OI() {
     	//Setting buttons to commands
     	rightJoystick = new Joystick(1);
         leftJoystick = new Joystick(0);
+        buttonBoard =  new Joystick(2);
         
         //Manual movement buttons
-        StraightDrive = new JoystickButton(leftJoystick, 6);
+        StraightDrive = new JoystickButton(buttonBoard, 4);
         StraightDrive.whileHeld(new StraightDrive());
         
-        ReverseStraightDrive = new JoystickButton(leftJoystick, 7);
+        ReverseStraightDrive = new JoystickButton(buttonBoard, 5);
         ReverseStraightDrive.whileHeld(new ReverseStraightDrive());
         
         NudgeLeft = new JoystickButton(rightJoystick, 4);
@@ -57,7 +62,7 @@ public class OI {
         NudgeRight = new JoystickButton(rightJoystick, 5);
         NudgeRight.whileHeld(new NudgeRight());
         
-        ManualAuto = new JoystickButton(leftJoystick, 11);
+        ManualAuto = new JoystickButton(buttonBoard, 10);
         ManualAuto.whenPressed(new ManualAuto());
         
         //Gear system buttons
@@ -67,25 +72,30 @@ public class OI {
         Retract = new JoystickButton(rightJoystick, 2);
         Retract.whileHeld(new Retract());
         
-        GearAutoCorrect = new JoystickButton(rightJoystick, 10);
+        GearAutoCorrect = new JoystickButton(buttonBoard, 2);
         GearAutoCorrect.whileHeld(new GearAutoCorrect());
         
-        GearBackUp = new JoystickButton(rightJoystick, 3);
+        GearBackUp = new JoystickButton(buttonBoard, 3);
         GearBackUp.whileHeld(new GearBackUp());
         
         //Servo system buttons
-        ServoSpinForward = new JoystickButton(leftJoystick, 8);
+        ServoSpinForward = new JoystickButton(buttonBoard, 9);
         ServoSpinForward.whileHeld(new ServoSpinForward());
         
-        ServoSpinBackward = new JoystickButton(leftJoystick, 9);
+        ServoSpinBackward = new JoystickButton(buttonBoard, 11);
         ServoSpinBackward.whileHeld(new ServoSpinBackward());
         
 //        ServoSpin = new JoystickButton(leftJoystick, 3);
 //        ServoSpin.whenPressed(new ServoSpin());
         
-        ReadSensors = new JoystickButton(rightJoystick, 6);
+        ReadSensors = new JoystickButton(buttonBoard, 7);
         ReadSensors.whenPressed(new ReadSensors());
         
+        ClimbUp = new JoystickButton(buttonBoard, 8);
+        ClimbUp.whileHeld(new ClimbUpAccel());
+        
+        ClimbDown = new JoystickButton(buttonBoard, 1);
+        ClimbDown.whileHeld(new ClimbDownAccel());
     }
 
     public Joystick getLeftJoystick() {
@@ -95,6 +105,7 @@ public class OI {
     public Joystick getRightJoystick() {
         return rightJoystick;
     }
+
 }
 
      

@@ -29,6 +29,7 @@ public class RobotMap {
 	//Motor declarations
 	public static Spark gearFlipSpark1;
 	public static Servo servoServo1;
+	public static Spark climberSpark1;
 	
 	//Sensor declarations
     public static Ultrasonic sensorDataUltrasonic1;
@@ -56,6 +57,9 @@ public class RobotMap {
         //Camera servo port
         servoServo1 = new Servo(5);
         LiveWindow.addActuator("Servo", "Servo 1", (Servo) servoServo1);
+        
+        climberSpark1 = new Spark(6);
+        LiveWindow.addActuator("Climber", "Spark 1", (Spark) climberSpark1);
         
         //Ultrasonic sensor ports
         sensorDataUltrasonic1 = new Ultrasonic(0,1);

@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ReadSensors extends Command {
 
+	//Declares sensors
 	private Ultrasonic ultraLeft;
 	private Ultrasonic ultraRight;
 	private DigitalInput photo;
@@ -29,6 +30,7 @@ public class ReadSensors extends Command {
     }
 
     protected void execute() {
+    	//Reads sensor data
     	double rangeLeft = ultraLeft.getRangeInches();
     	double rangeRight = ultraRight.getRangeInches();
     	boolean isGearAligned = photo.get();

@@ -42,6 +42,7 @@ public class AutoGearAutoCorrect extends Command {
     
     protected void initialize() {
     	setTimeout(1.0);
+    	//Runs execute() for 1.0 seconds
     }
 
     protected void execute() {
@@ -49,10 +50,15 @@ public class AutoGearAutoCorrect extends Command {
     	double rangeRight;
     	rangeLeft = ultraLeft.getRangeInches();
     	rangeRight = ultraRight.getRangeInches();
+    	//Reads ultrasonic sensors for distance
+    	
     	boolean isGearAligned;
     	isGearAligned = photo.get();
+    	//Reads photoelectric sensor for gear
+    	
     	boolean isRobotAligned = false;
     	SmartDashboard.putBoolean("Is the robot aligned?", isRobotAligned);
+    	//Creates variable to tell driver when robot is aligned
     	
     	if(isGearAligned == false){
     		if(Math.abs(rangeLeft - rangeRight) < 1.0){
